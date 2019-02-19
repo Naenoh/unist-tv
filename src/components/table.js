@@ -5,18 +5,37 @@ export default class Table extends Component {
 
     state = {
         matches: []
-    };
+    }
+
+    url = 'http://localhost:3000/matches'
 
     componentDidMount() {
-        const url = 'http://localhost:3000/matches?limit=10';
-        fetch(url)
+        this.getData(this.props.filters.p1, this.props.filters.p2)
+    }
+
+    getData(p1, p2) {
+        const searchParams = new URLSearchParams();
+        //searchParams.set("limit", '0');
+        //searchParams.set("offset", '0');
+        if(p1 !== 'Any' && p2 !== 'Any') {
+            searchParams.set("or", `(and(playerone.eq.${p1},playertwo.eq.${p2}), and(playerone.eq.${p2},playertwo.eq.${p1}))`)
+        } else if (p1 !== 'Any') {
+            searchParams.set("or",`(playerone.eq.${p1}, playertwo.eq.${p1})`)
+        } else if (p2 !== 'Any') {
+            searchParams.set("or",`(playerone.eq.${p2}, playertwo.eq.${p2})`)
+        }
+        fetch(this.url + '?' + searchParams.toString())
             .then(result => result.json())
             .then(result => {
                 this.setState({
                     matches: result
                 })
             });
-    };
+    }
+
+    componentWillReceiveProps(nextProps) {
+        this.getData(nextProps.filters.p1, nextProps.filters.p2)
+    }
 
 	render() {
         const lines = this.state.matches.map((row, index) => {
@@ -26,6 +45,8 @@ export default class Table extends Component {
         })
 		return (
 			<ul>
+                <li>{this.props.filters.p1}</li>
+                <li>{this.props.filters.p2}</li>
                 {lines}
 			</ul>
 		);

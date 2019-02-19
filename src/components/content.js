@@ -25,9 +25,7 @@ export default class Content extends Component {
 		return (
 			<div>
                 <Filters filtersValue={this.state.filters} handler={this.updateFilters}/>
-                <div>{this.state.filters.p1}</div>
-                <div>{this.state.filters.p2}</div>
-                <Table />
+                <Table filters={this.state.filters}/>
 			</div>
 		);
 	}
