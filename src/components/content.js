@@ -23,7 +23,7 @@ export default class Content extends Component {
         const { matches } = this.state;
 
 		return (
-			<div>
+			<div class="content">
                 <Filters filtersValue={this.state.filters} handler={this.updateFilters}/>
                 <Table filters={this.state.filters}/>
 			</div>

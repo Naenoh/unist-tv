@@ -16,7 +16,7 @@ export default class Table extends Component {
 
     getData(p1, p2) {
         const searchParams = new URLSearchParams();
-        //searchParams.set("limit", '0');
+        searchParams.set("limit", '25');
         //searchParams.set("offset", '0');
         const headers = new Headers({'Prefer': 'count=exact'})
         if(p1 !== 'Any' && p2 !== 'Any') {
@@ -51,10 +51,9 @@ export default class Table extends Component {
         })
 		return (
             <div>
-                <ul>
-                
+                <div class="table">
                     {lines}
-			    </ul>
+			    </div>
                 <span>Count : {this.state.resultCount}</span>
             </div>
 		);
