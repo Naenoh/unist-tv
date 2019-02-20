@@ -6,6 +6,7 @@ export default class Filters extends Component {
 
 	updateFilter = (filterType) => ((newValue) => this.props.handler({
 		...this.props.filtersValue,
+		page: 1,
 		[filterType]: newValue
 	}));
 

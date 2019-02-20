@@ -5,10 +5,10 @@ import Filters from './filters';
 export default class Content extends Component {
 
     state = {
-        matches: [],
         filters: {
             p1: 'Any',
-            p2: 'Any'
+            p2: 'Any',
+            page: 1
         }
     };
 
@@ -20,12 +20,10 @@ export default class Content extends Component {
 
 	render() {
 
-        const { matches } = this.state;
-
 		return (
 			<div class="content">
                 <Filters filtersValue={this.state.filters} handler={this.updateFilters}/>
-                <Table filters={this.state.filters}/>
+                <Table filters={this.state.filters} updateFilters={this.updateFilters}/>
 			</div>
 		);
 	}
