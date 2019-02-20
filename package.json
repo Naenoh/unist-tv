@@ -9,7 +9,7 @@
     "serve": "preact build && preact serve",
     "dev": "preact watch",
     "lint": "eslint src",
-    "postgrest": "F:\\Downloads\\postgrest-v5.2.0-windows-x64\\postgrest.exe F:\\Downloads\\postgrest-v5.2.0-windows-x64\\unisttv.conf"
+    "postgrest": "postgrest unisttv.conf"
   },
   "eslintConfig": {
     "extends": "eslint-config-synacor"

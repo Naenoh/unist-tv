@@ -1,0 +1,3 @@
+db-uri = "postgres://username:password@localhost:port/dbname"
+db-schema = "schemaname"
+db-anon-role = "web_anon"
