@@ -16,7 +16,7 @@ export default class Table extends Component {
 
     getData(p1, p2) {
         const searchParams = new URLSearchParams();
-        searchParams.set("limit", '25');
+        //searchParams.set("limit", '10');
         //searchParams.set("offset", '0');
         const headers = new Headers({'Prefer': 'count=exact'})
         if(p1 !== 'Any' && p2 !== 'Any') {
@@ -53,9 +53,9 @@ export default class Table extends Component {
             <div>
                 <div class="table-header-background">
                     <div class="table-header">
-                        <span class="item"> CHARACTERS </span>
-                        <span class="item"> LINK </span>
-                        <span class="item"> DATE </span>
+                        <span class="item stretched-text character"> CHARACTERS </span>
+                        <span class="item stretched-text link"> LINK </span>
+                        <span class="item stretched-text date"> DATE </span>
                     </div>
                 </div>
                 <div class="table">

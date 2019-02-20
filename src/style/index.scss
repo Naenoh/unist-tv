@@ -17,7 +17,7 @@ a {
 
 .wrapper {
     display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: [p1] 2fr [vs] 0.5fr [p2] 2fr 0.5fr [link] 2fr [date] 2fr;
 	padding: 3px;
 	border-style: solid;
 	border-image: linear-gradient(0.25turn, #160B2C 0%, #4A4084 50%, #160B2C 100%) 1;
@@ -26,6 +26,26 @@ a {
 	&:last-child{
 		border-width: 3px 0px 3px 0px;
 	}
+}
+
+.p1 {
+	grid-column-start: p1;
+}
+
+.p2 {
+	grid-column-start: p2;
+}
+.link {
+	grid-column-start: link;
+}
+.vs {
+	grid-column-start: vs;
+}
+.date {
+	grid-column-start: date;
+}
+.character {
+	grid-column-start: character;
 }
 
 .table-header-background {
@@ -39,8 +59,8 @@ a {
 .table-header {
 	display:grid;
 	padding: 3px;
-	grid-template-columns: 3fr 1fr 1fr;
-	max-width: 50%;
+	grid-template-columns: [character] 4.5fr 0.5fr [link] 2fr [date] 2fr;
+	max-width: 45%;
 	margin: 0 auto;
 }
 
@@ -54,7 +74,7 @@ a {
 
 .table {
 	margin: 10px;
-	max-width: 50%;
+	max-width: 45%;
 	margin: 0 auto;
 }
 
@@ -62,4 +82,9 @@ a {
 	align-self: center;
 	align-items: center;
 	font-size: 24px;
+}
+
+.stretched-text {
+	transform: scaleY(1.5);
+	transform-origin: 0.5 0.5;
 }

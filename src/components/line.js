@@ -6,15 +6,15 @@ export default class Line extends Component {
         const match = this.props.match;
 		return (
             <div class="wrapper">
-                <div class="item">
+                <div class="item p1">
                     <img src={'/assets/'+match.playerone+'.jpg'} alt={match.playerone}></img>
                 </div>
-                <div class="item"><span style="vertical-align: middle;">VS</span></div>
-                <div class="item">
+                <div class="item vs stretched-text">VS</div>
+                <div class="item P2">
                     <img src={'/assets/'+match.playertwo+'.jpg'} alt={match.playertwo}></img>
                 </div>
-                <div class="item"><a href={match.link} target="_blank">WATCH</a></div>
-                <div class="item">{match.upload_date}</div>   
+                <div class="item link stretched-text"><a href={match.link} target="_blank">WATCH</a></div>
+                <div class="item date stretched-text">{match.upload_date}</div>   
             </div>
 		);
 	}
