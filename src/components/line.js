@@ -7,14 +7,13 @@ export default class Line extends Component {
 		return (
             <div class="wrapper">
                 <div class="item">
-                    <span>{match.playerone}</span>
-                    <img src={'/assets/'+match.playerone+'.jpg'}></img>
+                    <img src={'/assets/'+match.playerone+'.jpg'} alt={match.playerone}></img>
                 </div>
+                <div class="item"><span style="vertical-align: middle;">VS</span></div>
                 <div class="item">
-                    <span>{match.playertwo}</span>
-                    <img src={'/assets/'+match.playertwo+'.jpg'}></img>
+                    <img src={'/assets/'+match.playertwo+'.jpg'} alt={match.playertwo}></img>
                 </div>
-                <div class="item"><a href={match.link} target="_blank">Watch !</a></div>
+                <div class="item"><a href={match.link} target="_blank">WATCH</a></div>
                 <div class="item">{match.upload_date}</div>   
             </div>
 		);
