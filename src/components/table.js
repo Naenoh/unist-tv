@@ -10,7 +10,7 @@ export default class Table extends Component {
 
     url = 'http://localhost:3000/matches'
 
-    perPage = 25
+    perPage = 10
 
     componentDidMount() {
         this.getData(this.props.filters.p1, this.props.filters.p2, this.props.filters.page)
@@ -50,8 +50,18 @@ export default class Table extends Component {
     updatePage(n) {
         this.props.updateFilters({
             ...this.props.filters,
-            page: this.props.filters.page + n
+            page: n
         })
+    }
+
+    getPages(currentPage, maxPage, size) {
+        const min = currentPage - size <= 0 ? 1 : currentPage - size
+        const max = currentPage + size > maxPage ? maxPage : currentPage + size
+        const array = []
+        for(var i = min; i <= max; i++) {
+            array.push(i)
+        }
+        return {array, min, max}
     }
 
     componentWillReceiveProps(nextProps) {
@@ -66,6 +76,18 @@ export default class Table extends Component {
         })
 
         const maxPage = Math.ceil(this.state.resultCount / this.perPage)
+        
+        const {array, min, max} = this.getPages(this.props.filters.page, maxPage, 3)
+
+        const minPicker = min !== 1 ? <span onCLick={this.updatePage.bind(this, 1)}>{1}...</span>: null
+        const maxPicker = max !== maxPage ? <span onCLick={this.updatePage.bind(this, maxPage)}>...{maxPage}</span>: null
+
+        const pages = array.map((i) => {
+            return (
+                <span onCLick={this.updatePage.bind(this, i)}>{i}</span>
+            )
+        })
+
 		return (
             <div>
                 <div class="table-header-background">
@@ -79,11 +101,12 @@ export default class Table extends Component {
                     {lines}
 			    </div>
                 <div>
-                    <button onCLick={this.updatePage.bind(this, -1)}>-</button>
+                    <div>{minPicker}{pages}{maxPicker}</div>
+                    <button onCLick={this.updatePage.bind(this, this.props.filters.page - 1)}>-</button>
                     <span>{this.props.filters.page} / {maxPage}</span>
-                    <button onCLick={this.updatePage.bind(this, 1)}>+</button>
+                    <button onCLick={this.updatePage.bind(this, this.props.filters.page + 1)}>+</button>
                 </div>
-            </div>  
+            </div>
 		);
 	}
 }
