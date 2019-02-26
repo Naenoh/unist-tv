@@ -88,3 +88,15 @@ a {
 	transform: scaleY(1.5);
 	transform-origin: 0.5 0.5;
 }
+
+.pages {
+	padding: 5px;
+}
+
+.page {
+	padding: 0.2rem;
+	&:hover{
+		color: aqua;
+		cursor: pointer;
+	}
+}

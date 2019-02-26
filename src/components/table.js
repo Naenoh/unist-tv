@@ -79,12 +79,12 @@ export default class Table extends Component {
         
         const {array, min, max} = this.getPages(this.props.filters.page, maxPage, 3)
 
-        const minPicker = min !== 1 ? <span onCLick={this.updatePage.bind(this, 1)}>{1}...</span>: null
-        const maxPicker = max !== maxPage ? <span onCLick={this.updatePage.bind(this, maxPage)}>...{maxPage}</span>: null
+        const minPicker = min !== 1 ? <span><span class="page" onCLick={this.updatePage.bind(this, 1)}>{1}</span><span>...</span></span>: null
+        const maxPicker = max !== maxPage ? <span><span>...</span><span class="page" onCLick={this.updatePage.bind(this, maxPage)}>{maxPage}</span></span>: null
 
         const pages = array.map((i) => {
             return (
-                <span onCLick={this.updatePage.bind(this, i)}>{i}</span>
+                <span class="page" onCLick={this.updatePage.bind(this, i)}>{i}</span>
             )
         })
 
@@ -101,9 +101,8 @@ export default class Table extends Component {
                     {lines}
 			    </div>
                 <div>
-                    <div>{minPicker}{pages}{maxPicker}</div>
                     <button onCLick={this.updatePage.bind(this, this.props.filters.page - 1)}>-</button>
-                    <span>{this.props.filters.page} / {maxPage}</span>
+                    <span class="pages">{minPicker}{pages}{maxPicker}</span>
                     <button onCLick={this.updatePage.bind(this, this.props.filters.page + 1)}>+</button>
                 </div>
             </div>
