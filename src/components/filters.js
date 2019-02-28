@@ -19,9 +19,10 @@ export default class Filters extends Component {
 		]
 
 		return (
-            	<div>
-				<span>P1 : </span> <Charpicker characters={characters} picked={this.props.filtersValue.p1} handler={this.updateFilter('p1')}/>
-				<span>P2 : </span> <Charpicker characters={characters} picked={this.props.filtersValue.p2} handler={this.updateFilter('p2')}/>
+            <div class="filter">
+				<Charpicker characters={characters} picked={this.props.filtersValue.p1} handler={this.updateFilter('p1')}/>
+				<span>VS</span>
+				<Charpicker characters={characters} picked={this.props.filtersValue.p2} handler={this.updateFilter('p2')}/>
 			</div>
 		);
 	}

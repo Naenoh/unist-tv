@@ -13,7 +13,7 @@ export default class Charpicker extends Component {
 			)
         })
 		return (
-            <select value={this.props.picked} onChange={this.updateValue.bind(this)}>{options}</select>
+            <select class="charselect" value={this.props.picked} onChange={this.updateValue.bind(this)}>{options}</select>
 		);
 	}
 }

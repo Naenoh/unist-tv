@@ -83,10 +83,19 @@ export default class Table extends Component {
         const maxPicker = max !== maxPage ? <span><span>...</span><span class="page" onCLick={this.updatePage.bind(this, maxPage)}>{maxPage}</span></span>: null
 
         const pages = array.map((i) => {
-            return (
-                <span class="page" onCLick={this.updatePage.bind(this, i)}>{i}</span>
-            )
+            if (i !== this.props.filters.page) {
+                return (
+                    <span class="page" onCLick={this.updatePage.bind(this, i)}>{i}</span>
+                )
+            } else {
+                return (
+                    <span>{i}</span>
+                )
+            }
         })
+
+        const isFirst = this.props.filters.page === 1
+        const isLast = this.props.filters.page === maxPage
 
 		return (
             <div>
@@ -101,9 +110,9 @@ export default class Table extends Component {
                     {lines}
 			    </div>
                 <div>
-                    <button onCLick={this.updatePage.bind(this, this.props.filters.page - 1)}>-</button>
+                    <span class={ isFirst ? 'page-disabled' : 'page'} onCLick={ !isFirst ?  this.updatePage.bind(this, this.props.filters.page - 1) : undefined }>&lt;</span>
                     <span class="pages">{minPicker}{pages}{maxPicker}</span>
-                    <button onCLick={this.updatePage.bind(this, this.props.filters.page + 1)}>+</button>
+                    <span class={ isLast ? 'page-disabled' : 'page'} onCLick={ !isLast ? this.updatePage.bind(this, this.props.filters.page + 1) : undefined }>&gt;</span>
                 </div>
             </div>
 		);

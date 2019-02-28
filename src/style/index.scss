@@ -9,6 +9,9 @@ html, body {
 
 a {
 	color: white;
+	&:hover {
+		color: #8C96E7;
+	}
 }
 
 .header {
@@ -91,12 +94,21 @@ a {
 
 .pages {
 	padding: 5px;
+	> * {
+		padding: 0.2rem;
+	}
 }
 
 .page {
-	padding: 0.2rem;
-	&:hover{
-		color: aqua;
-		cursor: pointer;
-	}
+	color: #8C96E7;
+	cursor: pointer;
+}
+
+.page-disabled {
+	cursor: not-allowed;
+	color: grey;
+}
+
+.charselect {
+	padding: 1rem;
 }
