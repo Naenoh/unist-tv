@@ -10,7 +10,7 @@ export default class Table extends Component {
 
     url = 'http://localhost:3000/matches'
 
-    perPage = 10
+    perPage = 25
 
     componentDidMount() {
         this.getData(this.props.filters.p1, this.props.filters.p2, this.props.filters.page)
@@ -79,8 +79,8 @@ export default class Table extends Component {
         
         const {array, min, max} = this.getPages(this.props.filters.page, maxPage, 3)
 
-        const minPicker = min !== 1 ? <span><span class="page" onCLick={this.updatePage.bind(this, 1)}>{1}</span><span>...</span></span>: null
-        const maxPicker = max !== maxPage ? <span><span>...</span><span class="page" onCLick={this.updatePage.bind(this, maxPage)}>{maxPage}</span></span>: null
+        const minPicker = min !== 1 ? <span><span class="page" onCLick={this.updatePage.bind(this, 1)}>{1}</span><span> ...</span></span>: null
+        const maxPicker = max !== maxPage ? <span><span>... </span><span class="page" onCLick={this.updatePage.bind(this, maxPage)}>{maxPage}</span></span>: null
 
         const pages = array.map((i) => {
             if (i !== this.props.filters.page) {
