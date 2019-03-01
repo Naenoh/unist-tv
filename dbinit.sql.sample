@@ -7,7 +7,7 @@ create table unisttv.matches(
     link text not null,
     upload_date date not null
 );
-
+create index date_players_index on unisttv.matches (upload_date DESC, playerone, playertwo);
 create role web_anon nologin;
 grant usage on schema unisttv to web_anon;
 grant select on unisttv.matches to web_anon;
