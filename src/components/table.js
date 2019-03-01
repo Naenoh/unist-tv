@@ -8,7 +8,7 @@ export default class Table extends Component {
         resultCount: 0
     }
 
-    url = 'http://localhost:3000/matches'
+    url = process.env.NODE_ENV === 'production' ? '/api/matches' : 'http://localhost:3000/matches';
 
     perPage = 25
 
