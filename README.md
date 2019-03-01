@@ -4,7 +4,7 @@ Near-automated Under Night In-Birth exe late\[ST\] match databse
 
 ## Disclaimer
 
-This repository only contains frontend code for the website as well as configuration and initialization files for the PostgreSQL + PostgREST backend.
+This repository only contains frontend code for the website as well as configuration and initialization files for the PostgreSQL + PostgREST backend. The (very messy and tailored to my windows installation) code for the script generating the data from youtube links lives [here](https://github.com/Naenoh/fight-watcher)
 
 ## Running locally
 
