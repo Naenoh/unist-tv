@@ -21,7 +21,7 @@ export default class Filters extends Component {
 		return (
             <div class="filter">
 				<Charpicker characters={characters} picked={this.props.filtersValue.p1} handler={this.updateFilter('p1')}/>
-				<span>VS</span>
+				<span class="stretched-text">VS</span>
 				<Charpicker characters={characters} picked={this.props.filtersValue.p2} handler={this.updateFilter('p2')}/>
 			</div>
 		);

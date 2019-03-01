@@ -1,10 +1,17 @@
 html, body {
 	font: 16px/1.21 'Arial', sans-serif;
 	font-weight: 510;
-	background-color: #160B2C;
+	background: linear-gradient(rgb(39, 20, 78), rgb(19, 9, 37));
 	color: white;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	margin:0;
+}
+
+.app {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 
 a {
@@ -12,10 +19,16 @@ a {
 	&:hover {
 		color: #8C96E7;
 	}
+	&:visited {
+		color: #4A4084;
+	}
 }
 
 .header {
 	text-align: center;
+	> h1 {
+		margin: 10px 0 5px 0;
+	}
 }
 
 .wrapper {
@@ -23,8 +36,7 @@ a {
 	grid-template-columns: [p1] 2fr [vs] 0.5fr [p2] 2fr 0.5fr [link] 2fr [date] 2fr;
 	padding: 3px;
 	border-style: solid;
-	border-image: linear-gradient(0.25turn, #160B2C 0%, #4A4084 50%, #160B2C 100%) 1;
-	//border: linear-gradient(#160B2C 0%, #4A4084 50%, #160B2C 100%) solid;
+	border-image: linear-gradient(0.25turn, rgba(74, 64, 132, 0) 0%, rgba(74, 64, 132, 1) 50%, rgba(74, 64, 132, 0) 100%) 1;
 	border-width: 3px 0px 0px 0px;
 	&:last-child{
 		border-width: 3px 0px 3px 0px;
@@ -63,28 +75,38 @@ a {
 	display:grid;
 	padding: 3px;
 	grid-template-columns: [character] 4.5fr 0.5fr [link] 2fr [date] 2fr;
-	max-width: 860px;
+	max-width: 600px;
 	margin: 0 auto;
 }
 
 .content {
 	text-align: center;
+	flex: 1;
 }
 
 .footer {
 	text-align: center;
+	margin-bottom: 5px;
+	margin-top: 15px;
+	font-size: 12px;
 }
 
 .table {
 	margin: 10px;
-	max-width: 860px;
+	max-width: 600px;
 	margin: 0 auto;
+	margin-bottom: 5px;
 }
 
 .item {
 	align-self: center;
 	align-items: center;
-	font-size: 24px;
+	font-size: 20px;
+	
+	> img {
+		max-height: 41px;
+		max-width: 85px;
+	}
 }
 
 .stretched-text {
@@ -110,5 +132,9 @@ a {
 }
 
 .charselect {
-	padding: 1rem;
+	text-transform: uppercase;
+	font: 16px/1.21 'Arial', sans-serif;
+	font-weight: 510;
+	margin: 5px;
+	padding: 1px;
 }
